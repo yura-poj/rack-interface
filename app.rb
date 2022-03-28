@@ -1,7 +1,7 @@
 class App
-  def call(env)
-  @env = env
-  [status, headers, body]
+  def call(_env, time)
+    @time = time
+    [status, headers, body]
   end
 
   private
@@ -11,11 +11,10 @@ class App
   end
 
   def headers
-    { 'Content-Type' => 'text/plain'}
+    { 'Content-Type' => 'text/plain' }
   end
 
   def body
-    [ " start ----- #{@env}" ]
+    [@time]
   end
-
 end
